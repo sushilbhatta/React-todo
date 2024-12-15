@@ -20,6 +20,15 @@ export default function App() {
     });
   }
 
+  function handleCancelAddTodo() {
+    setTodoState((prevState) => {
+      return {
+        ...prevState,
+        selectedTodoId: undefined,
+      };
+    });
+  }
+
   function handleAddProject(todoData) {
     setTodoState((prevState) => {
       const todoId = Math.random();
@@ -37,7 +46,9 @@ export default function App() {
 
   let content;
   if (todoState.selectedTodoId === null) {
-    content = <NewTodo onAdd={handleAddProject} />;
+    content = (
+      <NewTodo onCancel={handleCancelAddTodo} onAdd={handleAddProject} />
+    );
   } else if (todoState.selectedTodoId === undefined) {
     content = <NoTodoSelected onStartAddTodo={handleStartAddTodo} />;
   }

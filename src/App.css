@@ -340,7 +340,8 @@ svg {
 
 }
 
-.no-todo h2 {
+.no-todo h2,
+.modal__title {
   font-size: 1.25rem;
   font-weight: bold;
   color: rgb(120, 113, 108);
@@ -348,7 +349,8 @@ svg {
 
 }
 
-.no-todo__description {
+.no-todo__description,
+.modal__description {
   color: rgb(168 162 158);
   margin-bottom: 1rem;
 
@@ -377,4 +379,26 @@ svg {
 
 .todo-task:hover {
   background-color: rgb(187, 184, 183);
+}
+
+/* End of task list styles */
+
+/* Modal styles */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: none;
+  backdrop-filter: blur(2px);
+  background-color: #292524e6;
+  padding: 1rem;
+  border-radius: 0.375rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+.modal form {
+  margin-top: 1rem;
+  text-align: right;
+
 }
