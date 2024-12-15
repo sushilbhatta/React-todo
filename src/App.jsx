@@ -19,9 +19,24 @@ export default function App() {
       };
     });
   }
+
+  function handleAddProject(todoData) {
+    setTodoState((prevState) => {
+      const newTodo = {
+        ...todoData,
+        id: Math.random(),
+      };
+      return {
+        ...prevState,
+        todos: [...prevState.todos, newTodo],
+      };
+    });
+  }
+
+  console.log(todoState);
   let content;
   if (todoState.selectedTodoId === null) {
-    content = <NewProject />;
+    content = <NewProject onAdd={handleAddProject} />;
   } else if (todoState.selectedTodoId === undefined) {
     content = <NoTodoSelected onStartAddTodo={handleStartAddTodo} />;
   }
