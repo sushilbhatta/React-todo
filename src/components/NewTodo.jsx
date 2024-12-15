@@ -14,7 +14,6 @@ export default function NewTodo() {
       <div>
         <Input label='Title'></Input>
         <Input label='Description' textarea></Input>
-        <Input label='Due Date'></Input>
       </div>
     </div>
   );
