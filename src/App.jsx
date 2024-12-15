@@ -9,7 +9,36 @@ export default function App() {
   const [todoState, setTodoState] = useState({
     selectedTodoId: undefined,
     todos: [],
+    tasks: [],
   });
+
+  //Add the Task to the selected todo
+  function handleAddTask(text) {
+    setTodoState((prevState) => {
+      const TaskId = Math.random();
+      const newTask = {
+        text: text,
+        projectId: prevState.selectedTodoId,
+        id: TaskId,
+      };
+      return {
+        ...prevState,
+        tasks: [newTask, ...prevState.tasks],
+      };
+    });
+  }
+
+  // Delete the task from the selected todo
+  function handleDeleteTask(id) {
+    setTodoState((prevState) => {
+      return {
+        ...prevState,
+        tasks: prevState.tasks.filter((task) => task.id !== id),
+      };
+    });
+  }
+
+  // Select the Todo
 
   function handleSelectProject(id) {
     setTodoState((prevState) => {
@@ -21,7 +50,8 @@ export default function App() {
   }
 
   // undefined: no todo task are selected ->
-  //  null:some todo task are selected.
+
+  // initialize Adding the Todo
   function handleStartAddTodo() {
     setTodoState((prevState) => {
       return {
@@ -31,6 +61,7 @@ export default function App() {
     });
   }
 
+  // Cancle Adding Todo
   function handleCancelAddTodo() {
     setTodoState((prevState) => {
       return {
@@ -40,6 +71,7 @@ export default function App() {
     });
   }
 
+  // Confirm to add the Todo
   function handleAddProject(todoData) {
     setTodoState((prevState) => {
       const todoId = Math.random();
@@ -55,6 +87,7 @@ export default function App() {
     });
   }
 
+  // Delete the Todo
   function handleDeleteTodo() {
     setTodoState((prevState) => {
       return {
@@ -71,8 +104,17 @@ export default function App() {
     (todo) => todo.id === todoState.selectedTodoId
   );
   let content = (
-    <SelectedTodo todos={selectedTodo} onDeleteTodo={handleDeleteTodo} />
+    <SelectedTodo
+      todos={selectedTodo}
+      onDeleteTodo={handleDeleteTodo}
+      onAddTask={handleAddTask}
+      onDeleteTask={handleDeleteTask}
+      tasks={todoState.tasks}
+    />
   );
+
+  //  null:some todo task are selected. ->
+  //  no todo Tasks selected
   if (todoState.selectedTodoId === null) {
     content = (
       <NewTodo onCancel={handleCancelAddTodo} onAdd={handleAddProject} />
@@ -87,6 +129,7 @@ export default function App() {
         onSelectTodo={handleSelectProject}
         onStartAddTodo={handleStartAddTodo}
         todos={todoState.todos}
+        selectedTodoId={todoState.selectedTodoId}
       />
       {content}
     </main>

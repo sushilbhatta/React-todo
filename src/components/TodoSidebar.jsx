@@ -1,5 +1,7 @@
 /* eslint-disable react/prop-types */
+import { IconContext } from "react-icons";
 import Button from "./Button";
+import { FaArrowRight } from "react-icons/fa";
 
 // import "./App.css";
 export default function TodoSidebar({
@@ -28,7 +30,12 @@ export default function TodoSidebar({
                 className={cssClasses}
                 onClick={() => onSelectTodo(todo.id)}
               >
-                {todo.title}
+                <span>{todo.title}</span>
+                <span>
+                  <IconContext.Provider color='blue' value={{ size: "1rem" }}>
+                    <FaArrowRight></FaArrowRight>
+                  </IconContext.Provider>
+                </span>
               </button>
             </li>
           );

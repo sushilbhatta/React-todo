@@ -5,6 +5,7 @@ import Button from "./Button";
 
 const Modal = forwardRef(function Modal({ children, buttonCaption }, ref) {
   const dialog = useRef();
+  // Dialog API to be used outside the component
   useImperativeHandle(ref, () => {
     return {
       open() {

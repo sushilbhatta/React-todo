@@ -1,5 +1,13 @@
+import Tasks from "./Tasks";
+
 /* eslint-disable react/prop-types */
-export default function SelectedTodo({ todos, onDeleteTodo }) {
+export default function SelectedTodo({
+  todos,
+  onDeleteTodo,
+  onAddTask,
+  onDeleteTask,
+  tasks,
+}) {
   //   console.log(todos);
   return (
     <div className='selected-todo'>
@@ -10,6 +18,7 @@ export default function SelectedTodo({ todos, onDeleteTodo }) {
         </div>
         <p className='todo-header__description'>{todos.description}</p>
       </header>
+      <Tasks onAdd={onAddTask} onDelete={onDeleteTask} tasks={tasks} />
     </div>
   );
 }

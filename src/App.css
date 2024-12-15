@@ -1,35 +1,3 @@
-:root {
-
-  --clr-neutral-700: hsl(228, 11%, 9%);
-  --clr-neutral-600: hsl(215, 20%, 16%);
-  --clr-neutral-500: hsl(204, 27%, 18%);
-  --clr-neutral-100: hsl(0, 0%, 100%);
-  --clr-neutral-200: hsl(217, 12%, 63%);
-  --clr-accent-orange-400: hsl(25, 97%, 53%);
-
-
-  --ff-primary: "Overpass", sans-serif;
-
-
-
-
-  --fw-regular: 400;
-  --fw-bold: 700;
-
-  --fs-small: 0.875rem;
-  --fs-large: 1.2rem
-}
-
-@media(min-width:50rem) {
-  :root {
-    --fs-body: var(--fs-500);
-    --fs-primary-heading: var(--fs-900);
-    --fs-secondary-heading: var(--fs-800);
-
-    --fs-nav: var(var(--fs-300))
-  }
-}
-
 /* Box sizing rules */
 *,
 *::before,
@@ -54,6 +22,7 @@ ol {
 button {
   outline: none;
   border: none;
+  cursor: pointer;
 }
 
 a {
@@ -110,84 +79,7 @@ svg {
 }
 
 
-/* Utility classes */
 
-.bg-neutral-600 {
-  background-color: var(--clr-neutral-600);
-}
-
-.bg-neutral-500 {
-  background-color: var(--clr-neutral-500);
-}
-
-
-.bg-neutral-700 {
-  background-color: var(--clr-neutral-700);
-}
-
-.bg-neutral-100 {
-  background-color: var(--clr-neutral-100);
-}
-
-.bg-neutral-200 {
-  background-color: var(--clr-neutral-200);
-}
-
-.text-neutral-100 {
-  color: var(--clr-neutral-100);
-}
-
-.text-neutral-200 {
-  color: var(--clr-neutral-200);
-}
-
-.text-neutral-600 {
-  color: var(--clr-neutral-600);
-}
-
-.text-neutral-700 {
-  color: var(--clr-neutral-700);
-}
-
-.text-accent-400 {
-  color: var(--clr-accent-orange-400);
-}
-
-
-.bg-accent-400 {
-  background-color: var(--clr-accent-orange-400);
-}
-
-
-
-
-.fw-bold {
-  font-weight: var(--fw-bold)
-}
-
-
-
-.fw-regular {
-  font-weight: var(--fw-regular)
-}
-
-
-.fs-small {
-  font-size: var(--fs-small);
-}
-
-.fs-large {
-  font-size: var(--fs-large);
-}
-
-.ff-primary {
-  font-family: var(--ff-primary);
-}
-
-
-
-/* End of utility classes */
-/* End of base styles */
 
 /* Sidebar styles */
 .main {
@@ -215,8 +107,11 @@ svg {
   font-size: 1.125rem;
 }
 
+
+
 /* Button styles */
 .button {
+  cursor: pointer;
   padding: 0.5rem 1rem;
   font-size: 0.75rem;
   border-radius: 0.375rem;
@@ -229,6 +124,54 @@ svg {
   background-color: #3f3a36;
   color: #f5f5f4;
 }
+
+
+/* Task list styles */
+.todo-task__list {
+  margin-top: 2rem;
+}
+
+.task-list__btn {
+  width: 100%;
+  text-align: left;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  margin: 0.25rem 0;
+  background-color: rgb(156, 152, 150);
+
+}
+
+.task-list__btn--active {
+  width: 100%;
+  text-align: left;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  margin: 0.25rem 0;
+  background-color: rgb(39, 38, 38);
+  color: #c9c9c9;
+
+}
+
+.task-list__btn--extra {
+  width: 100%;
+  text-align: left;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  margin: 0.25rem 0;
+  color: rgb(187, 184, 183);
+}
+
+.todo-task__list button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.todo-task__list button:hover {
+  background-color: rgb(187, 184, 183);
+  color: #1b1a1a;
+}
+
 
 /* Responsive adjustments */
 @media (min-width: 768px) {
@@ -243,7 +186,7 @@ svg {
 
 /* End of sidebar styles */
 
-/* New project styles */
+/* New Todo styles */
 .new-project {
   width: 35rem;
   margin-top: 4rem;
@@ -362,46 +305,6 @@ svg {
 
 /* End of no todo styles */
 
-/* Task list styles */
-.todo-task__list {
-  margin-top: 2rem;
-}
-
-.task-list__btn {
-  width: 100%;
-  text-align: left;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  margin: 0.25rem 0;
-  background-color: rgb(156, 152, 150);
-
-}
-
-.task-list__btn--active {
-  width: 100%;
-  text-align: left;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  margin: 0.25rem 0;
-  background-color: rgb(39, 38, 38);
-  color: #c9c9c9;
-
-}
-
-.task-list__btn--extra {
-  width: 100%;
-  text-align: left;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  margin: 0.25rem 0;
-  color: rgb(187, 184, 183);
-}
-
-.todo-task:hover {
-  background-color: rgb(187, 184, 183);
-}
-
-/* End of task list styles */
 
 /* Modal styles */
 .modal {
@@ -463,4 +366,68 @@ svg {
   margin-bottom: 1rem;
   color: #4e2e2e;
   white-space: pre-wrap;
+}
+
+/* Tasks styles */
+.task-heading {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #4e2e2e;
+  margin-bottom: 1rem;
+}
+
+.tasks p {
+  color: #4e2e2e;
+  margin: 1rem 0;
+}
+
+.new-task {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.new-task input {
+  width: 16rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  background-color: #c9c9c9;
+}
+
+.new-task button {
+  color: #4e2e2e;
+  ;
+}
+
+.new-task button:hover {
+  color: #1b1a1a;
+}
+
+.task-items {
+  padding: 1rem;
+  margin-top: 2rem;
+  border-radius: 6px;
+  background-color: rgb(245 245 244);
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+}
+
+/* .task-item button {
+  color: #4e2e2e;
+
+} */
+
+/* .task-item button:hover {
+  color: #a51f1f;
+  background-color: #f5f5f4;
+} */
+
+.task-item__actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
