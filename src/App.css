@@ -367,7 +367,7 @@ svg {
   margin-top: 2rem;
 }
 
-.todo-task__list button {
+.task-list__btn {
   width: 100%;
   text-align: left;
   padding: 0.25rem 0.5rem;
@@ -375,6 +375,26 @@ svg {
   margin: 0.25rem 0;
   background-color: rgb(156, 152, 150);
 
+}
+
+.task-list__btn--active {
+  width: 100%;
+  text-align: left;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  margin: 0.25rem 0;
+  background-color: rgb(39, 38, 38);
+  color: #c9c9c9;
+
+}
+
+.task-list__btn--extra {
+  width: 100%;
+  text-align: left;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  margin: 0.25rem 0;
+  color: rgb(187, 184, 183);
 }
 
 .todo-task:hover {
@@ -400,5 +420,47 @@ svg {
 .modal form {
   margin-top: 1rem;
   text-align: right;
+}
 
+/* End of modal styles */
+/* selected todo */
+
+.selected-todo {
+  width: 35rem;
+  margin-top: 4rem;
+
+}
+
+.selected-todo__header {
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #cfccc9;
+}
+
+.todo-header__details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.todo-header__details h1 {
+  font-size: 1.875rem;
+  font-weight: bold;
+  color: #4e2e2e;
+  margin-bottom: 0.5rem;
+
+}
+
+.todo-header__details button {
+  color: #4e2e2e;
+}
+
+.todo-header__details button:hover {
+  color: #1b1a1a;
+}
+
+.todo-header__description {
+  margin-bottom: 1rem;
+  color: #4e2e2e;
+  white-space: pre-wrap;
 }

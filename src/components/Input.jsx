@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { forwardRef } from "react";
 
 const Input = forwardRef(function Input({ label, textarea, ...props }, ref) {

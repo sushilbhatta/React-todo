@@ -2,6 +2,7 @@ import { useRef } from "react";
 import Input from "./Input";
 import Modal from "./Modal";
 
+// eslint-disable-next-line react/prop-types
 export default function NewTodo({ onAdd, onCancel }) {
   const modal = useRef();
   const title = useRef();

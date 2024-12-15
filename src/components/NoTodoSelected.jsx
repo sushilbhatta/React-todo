@@ -1,5 +1,6 @@
 import noTodoImage from "../assets/no-todo.png";
 import Button from "./Button";
+// eslint-disable-next-line react/prop-types
 export default function NoTodoSelected({ onStartAddTodo }) {
   return (
     <div className='no-todo'>
