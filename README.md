@@ -13,7 +13,7 @@ React Todo Application
 #clone the repo
 
 ```bash
-git clone https://github.com/Abhishek-2001/React-Todo-App.git
+git clone git@github.com:sushilbhatta/React-todo.git
 ```
 
 #navigate to the directory
