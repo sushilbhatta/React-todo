@@ -19,7 +19,7 @@ git clone git@github.com:sushilbhatta/React-todo.git
 #navigate to the directory
 
 ```bash
-cd React-Todo-App
+cd React-todo
 ```
 
 #install the dependencies:
