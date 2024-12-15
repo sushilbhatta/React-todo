@@ -2,7 +2,7 @@ import ProjectsSidebar from "./components/TodoSidebar";
 import "./App.css";
 import NoTodoSelected from "./components/NoTodoSelected";
 import { useState } from "react";
-import NewProject from "./components/NewTodo";
+import NewTodo from "./components/NewTodo";
 
 export default function App() {
   const [todoState, setTodoState] = useState({
@@ -22,29 +22,32 @@ export default function App() {
 
   function handleAddProject(todoData) {
     setTodoState((prevState) => {
+      const todoId = Math.random();
       const newTodo = {
         ...todoData,
-        id: Math.random(),
+        id: todoId,
       };
       return {
         ...prevState,
+        selectedTodoId: undefined,
         todos: [...prevState.todos, newTodo],
       };
     });
   }
 
-  console.log(todoState);
   let content;
   if (todoState.selectedTodoId === null) {
-    content = <NewProject onAdd={handleAddProject} />;
+    content = <NewTodo onAdd={handleAddProject} />;
   } else if (todoState.selectedTodoId === undefined) {
     content = <NoTodoSelected onStartAddTodo={handleStartAddTodo} />;
   }
 
   return (
     <main className='main'>
-      <ProjectsSidebar onStartAddTodo={handleStartAddTodo}></ProjectsSidebar>
-      {/* <NewProject></NewProject> */}
+      <ProjectsSidebar
+        onStartAddTodo={handleStartAddTodo}
+        todos={todoState.todos}
+      />
       {content}
     </main>
   );

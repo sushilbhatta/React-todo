@@ -357,3 +357,24 @@ svg {
 .no-todo__button--container {
   margin-top: 2rem;
 }
+
+/* End of no todo styles */
+
+/* Task list styles */
+.todo-task__list {
+  margin-top: 2rem;
+}
+
+.todo-task__list button {
+  width: 100%;
+  text-align: left;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  margin: 0.25rem 0;
+  background-color: rgb(156, 152, 150);
+
+}
+
+.todo-task:hover {
+  background-color: rgb(187, 184, 183);
+}
